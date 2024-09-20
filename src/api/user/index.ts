@@ -6,7 +6,7 @@ import { User, UserRequest, UserResponse } from "./types";
 import { auth_options } from "../auth/signin";
 import { getServerSession } from "next-auth";
 
-async function fetchUserList(): Promise<User[]> {
+export async function fetchUserList(): Promise<User[]> {
   const result = await fetch("https://jsonplaceholder.typicode.com/users");
   const data = await result.json();
 
