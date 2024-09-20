@@ -18,7 +18,7 @@ interface Props extends ComponentProps<typeof SuspenseTestMain> {
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const query_client = getQueryClient();
   const query_options = getUserListQueryOptions();
-  await query_client.prefetchQuery(query_options);
+  // await query_client.prefetchQuery(query_options);
 
   const dehydrated_state: DehydratedState = dehydrate(query_client);
 

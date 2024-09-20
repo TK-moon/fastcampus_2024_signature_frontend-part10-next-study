@@ -9,7 +9,7 @@ import {
 import { FC } from "react";
 
 const SuspenseTestMain: FC = () => {
-  const { data } = useQuery(getUserListQueryOptions());
+  const { data } = useSuspenseQuery(getUserListQueryOptions());
 
   console.log(data);
 
@@ -27,9 +27,12 @@ const SuspenseTestMain: FC = () => {
 
 const SuspenseTestMainWithSuspense: FC = () => {
   return (
-    // <Suspense>
-    <SuspenseTestMain />
-    // </Suspense>
+    <Suspense
+      fallback={<>Loading</>}
+      suspense_query_key={[getUserListQueryOptions().queryKey]}
+    >
+      <SuspenseTestMain />
+    </Suspense>
   );
 };
 
