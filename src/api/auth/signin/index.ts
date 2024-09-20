@@ -20,7 +20,7 @@ declare module "next-auth/jwt" {
   }
 }
 
-const auth_options: AuthOptions = {
+export const auth_options: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",

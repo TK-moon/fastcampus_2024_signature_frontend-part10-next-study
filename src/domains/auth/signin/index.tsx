@@ -8,6 +8,7 @@ import {
   signIn,
   SignInOptions,
   SignInResponse,
+  signOut,
   useSession,
 } from "next-auth/react";
 
@@ -53,7 +54,11 @@ const SigninMain: FC = () => {
             {isPending ? "로그인중..." : "로그인"}
           </Button>
         </form>
-        {is_logged_in && <Button style={{ marginTop: 12 }}>로그아웃</Button>}
+        {is_logged_in && (
+          <Button style={{ marginTop: 12 }} onClick={() => signOut()}>
+            로그아웃
+          </Button>
+        )}
       </section>
     </main>
   );
